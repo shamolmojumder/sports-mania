@@ -43,9 +43,9 @@ const Home = () => {
             </Paper>
           </Grid>
 
-          {
-            leagues.map(league=> <League league={league}> <h1>hello</h1> </League>  )
-          }
+//           {
+//             leagues.map(league=> <League league={league}> <h1>hello</h1> </League>  )
+//           }
         </Grid>
       </div>
       </Container>
