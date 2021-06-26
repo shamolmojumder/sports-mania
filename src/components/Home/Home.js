@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
     const classes = useStyles();
-    const [leagues,setLeagues] = useState({});
+    const [leagues,setLeagues] = useState([]);
     console.log(leagues);
     useEffect(()=>{
       fetch(`https://www.thesportsdb.com/api/v1/json/1/all_leagues.php`)
@@ -42,10 +42,12 @@ const Home = () => {
               <h1 style={{textAlign:"center"}}> Total leagues {leagues.length}</h1>
             </Paper>
           </Grid>
-
-//           {
-//             leagues.map(league=> <League league={league}> <h1>hello</h1> </League>  )
-//           }
+           {
+            leagues?.map(league=> <League league={league} key={league.idLeague}></League>  )
+           }
+{
+  console.log(Array.isArray(leagues))
+}
         </Grid>
       </div>
       </Container>
