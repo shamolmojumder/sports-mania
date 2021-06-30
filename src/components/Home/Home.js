@@ -27,7 +27,7 @@ const Home = () => {
     useEffect(()=>{
       fetch(`https://www.thesportsdb.com/api/v1/json/1/all_leagues.php`)
       .then(res=>res.json())
-      .then(data=>setLeagues(data.leagues))
+      .then(data=>setLeagues((data.leagues).slice(0,10)))
     },[])
     return (
         <Container fixed >
