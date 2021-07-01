@@ -43,7 +43,7 @@ const Home = () => {
             </Paper>
           </Grid>
            {
-            leagues?.map(league=> <League league={league} key={league.idLeague}></League>  )
+            leagues?.map(league=> <League league={league} key={league.idTeam}></League>  )
            }
 {/* {
   console.log(Array.isArray(leagues))
