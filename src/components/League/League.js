@@ -20,28 +20,27 @@ const useStyles = makeStyles({
 
 const League = (props) => {
     const classes = useStyles();
-    const {strLeague,strLeagueAlternate,strSport}=props.league;
-    console.log(props)
+    const {strLeague,strAlternate,strSport,strTeamBadge}=props.league;
+    // console.log(props)
     return (
         <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image="../../images/image 1.png"
+            image="../../images/image1.png"
             title="Contemplative Reptile"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+              {strLeague}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-              across all continents except Antarctica
+              {strAlternate.length ? "{strAlternate}": "no info found" }
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" outlined cvariant="contained" color="secondary">
+          <Button onClick={()=>console.log("hello")} size="small" outlined cvariant="contained" color="secondary">
             Explore
           </Button>
         </CardActions>

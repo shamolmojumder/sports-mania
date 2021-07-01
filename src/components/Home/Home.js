@@ -23,11 +23,11 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
     const classes = useStyles();
     const [leagues,setLeagues] = useState([]);
-    console.log(leagues);
+    // console.log(leagues);
     useEffect(()=>{
-      fetch(`https://www.thesportsdb.com/api/v1/json/1/all_leagues.php`)
+      fetch(`https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=Italian%20Serie%20A`)
       .then(res=>res.json())
-      .then(data=>setLeagues((data.leagues).slice(0,10)))
+      .then(data=>setLeagues((data.teams)))
     },[])
     return (
         <Container fixed >
@@ -45,9 +45,9 @@ const Home = () => {
            {
             leagues?.map(league=> <League league={league} key={league.idLeague}></League>  )
            }
-{
+{/* {
   console.log(Array.isArray(leagues))
-}
+} */}
         </Grid>
       </div>
       </Container>
