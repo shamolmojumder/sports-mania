@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
+
+
 
 
 const useStyles = makeStyles({
@@ -13,9 +16,15 @@ const useStyles = makeStyles({
   });
   
 
+
 const League = (props) => {
-    const classes = useStyles();
-    const {strLeague,strAlternate,strSport,strTeamBadge}=props.league;
+  const {strLeague,strAlternate,strSport,strTeamBadge,idTeam}=props.league;
+  let history=useHistory();
+  const handleExploreBtn =(idTeam)=>{
+    history.push(`detail/${idTeam}`)
+  }
+  const classes = useStyles();
+    
     // console.log(props)
     return (
        <div className="main" style={{width:"30%",height:'400px',border:'1px solid black',textAlign:"center"}}>
@@ -26,7 +35,7 @@ const League = (props) => {
           <p> {strLeague} </p>
           <p> {strAlternate} </p>
           <p> {strSport} </p>
-          <Button onClick={()=>console.log("hello",strLeague)} variant="contained" color="primary">
+          <Button onClick={()=>handleExploreBtn(idTeam)} variant="contained" color="primary">
             Primary
           </Button>
          </div>
