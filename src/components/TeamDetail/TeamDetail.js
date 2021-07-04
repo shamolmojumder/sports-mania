@@ -12,6 +12,8 @@ const TeamDetail = () => {
         .then(data=>setTeam(data.teams[0]))
     },[idTeam])
     console.log("team detail",team);
+    // let strGender='male';
+    // const ifimg = strGender ? 'https://i.ibb.co/Hx22hkG/Capture.png' : 'https://www.nicepng.com/png/full/416-4167329_shot-glass.png' ;
     return (
         <div>
             <div className="header">
@@ -27,6 +29,7 @@ const TeamDetail = () => {
              </div>
              <div className="premier-league-right">
             <img src={strTeamFanart3} alt="" />
+            {/* <img src={ifimg} alt="" /> */}
              </div>
             </div>
             <p> {strDescriptionEN} </p>
