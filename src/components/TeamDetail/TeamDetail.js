@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 const TeamDetail = () => {
     const{idTeam}= useParams();
     const [team,setTeam]=useState({});
-    const {strDescriptionEN,strFacebook,strGender,strInstagram,strLeague,strLeague2,strLeague3,strStadiumThumb,strSport,intFormedYear}=team;
+    const {strDescriptionEN,strFacebook,strGender,strInstagram,strLeague,strLeague2,strLeague3,strStadiumThumb,strSport,intFormedYear,strTeamFanart3}=team;
     useEffect(()=>{
         fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${idTeam}`)
         .then(res=>res.json())
@@ -18,15 +18,15 @@ const TeamDetail = () => {
                 <img src='https://i.ibb.co/Hx22hkG/Capture.png' alt="" />
             </div>
             <h1>Detail {idTeam} </h1>
-            <div className="premier-league-section">
-             <div style={{backgroundColor:'#183386'}} className="premier-league-left">
+            <div  className="premier-league-section">
+             <div  className="premier-league-left">
              <h4>Premier league  </h4>
                 <h3>Founded: {intFormedYear} </h3>
                 <h3>Sport Type: {strSport} </h3>
                 <h3>Gender:{strGender} </h3>
              </div>
              <div className="premier-league-right">
-
+            <img src={strTeamFanart3} alt="" />
              </div>
             </div>
             <p> {strDescriptionEN} </p>
