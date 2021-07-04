@@ -13,28 +13,26 @@ const TeamDetail = () => {
     },[idTeam])
     console.log("team detail",team);
     // let strGender='male';
-    // const ifimg = strGender ? 'https://i.ibb.co/Hx22hkG/Capture.png' : 'https://www.nicepng.com/png/full/416-4167329_shot-glass.png' ;
+    const ifimg = strGender==="male" ? 'https://i.ibb.co/nfXXPxG/female.png' : 'https://i.ibb.co/S0g5ydp/male.png' ;
     return (
-        <div>
-            <div className="header">
-                <img src='https://i.ibb.co/Hx22hkG/Capture.png' alt="" />
+        <div style={{backgroundColor:'#062b80',height:'100vh'}} className="teamDetail">
+            <div className="banner">
+                <img style={{width:'100%',height:'30vh'}} src='https://i.ibb.co/Hx22hkG/Capture.png' alt="content missing" />
             </div>
-            <h1>Detail {idTeam} </h1>
-            <div  className="premier-league-section">
-             <div  className="premier-league-left">
-             <h4>Premier league  </h4>
-                <h3>Founded: {intFormedYear} </h3>
-                <h3>Sport Type: {strSport} </h3>
-                <h3>Gender:{strGender} </h3>
-             </div>
-             <div className="premier-league-right">
-            <img src={strTeamFanart3} alt="" />
-            {/* <img src={ifimg} alt="" /> */}
-             </div>
+            <div className="team-detail-body">
+                <div style={{width:'60%',marginLeft:'20%',backgroundColor:'#1548bf',height:'188px'}} className="premier-league">
+                    <div style={{color:'white',float:'left',paddingLeft:'250px'}} className="left">
+                        <h2>Premier league  </h2>
+                        <h3>Founded: {intFormedYear} </h3>
+                        <h3>Sport Type: {strSport} </h3>
+                        <h3>Gender:{strGender} </h3>
+                    </div>
+                    <div style={{float:'right',paddingRight:'250px',paddingTop:'5px'}} className="right">
+                        <img style={{height:'170px'}} src={ifimg} alt="check the url" />
+                    </div>
+                </div>
+                <p style={{color:'#fff'}}>{strDescriptionEN}</p>
             </div>
-            <p> {strDescriptionEN} </p>
-            {/* <p> {team[0].strDescriptionEN === undefined? "found" :"no info found"} </p> */}
-            {/* {strAlternate.length ? "{strAlternate}": "no info found" } */}
         </div>
     );
 };
