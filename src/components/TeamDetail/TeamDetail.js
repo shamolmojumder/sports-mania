@@ -9,7 +9,7 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 const TeamDetail = () => {
     const{idTeam}= useParams();
     const [team,setTeam]=useState({});
-    const {strDescriptionEN,strFacebook,strGender,strInstagram,strLeague,strLeague2,strLeague3,strStadiumThumb,strSport,intFormedYear,strTeamFanart3}=team;
+    const {strDescriptionEN,strFacebook,strGender,strInstagram,intFormedYear,strSport}=team;
     useEffect(()=>{
         fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${idTeam}`)
         .then(res=>res.json())

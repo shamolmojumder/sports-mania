@@ -4,27 +4,12 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 
-
-
-const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 140,
-    },
-  });
-  
-
-
 const League = (props) => {
   const {strLeague,strAlternate,strSport,strTeamBadge,idTeam}=props.league;
   let history=useHistory();
   const handleExploreBtn =(idTeam)=>{
     history.push(`detail/${idTeam}`)
   }
-  const classes = useStyles();
-    
     // console.log(props)
     return (
        <div className="main" style={{width:"30%",height:'400px',border:'1px solid black',textAlign:"center"}}>
