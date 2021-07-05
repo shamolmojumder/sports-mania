@@ -38,6 +38,7 @@ const TeamDetail = () => {
             </div>
             <div className="footer">
             <p style={{color:'#fff',width:'60%',marginLeft:'20%',padding:'20px 10px'}}>{strDescriptionEN}</p>
+            <p style={{color:'#fff',width:'60%',marginLeft:'20%',padding:'20px 10px'}}>{strDescriptionEN}</p>
                 <div style={{color:'white',textAlign:'center'}} className="icon">
                 <a href={strFacebook}><FacebookIcon></FacebookIcon></a>
                 <a href={strFacebook}><TwitterIcon></TwitterIcon></a>
