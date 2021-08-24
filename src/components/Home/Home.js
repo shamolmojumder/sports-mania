@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { Container } from '@material-ui/core';
 import { useEffect } from 'react';
 import League from '../League/League';
-
+import LinearProgress from '@material-ui/core/LinearProgress';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -18,9 +18,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const progessBarLine = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
+
 
 
 const Home = () => {
+    const progessBarLineClasses = progessBarLine();  
     const classes = useStyles();
     const [leagues,setLeagues] = useState([]);
     // console.log(leagues);
@@ -42,6 +52,10 @@ const Home = () => {
               <h1 style={{textAlign:"center"}}> Total leagues {leagues.length}</h1>
             </Paper>
           </Grid>
+          {
+            leagues.length ===0 &&   
+             <div className={progessBarLineClasses.root}> <LinearProgress /> </div>
+          }
            {
             leagues?.map(league=> <League league={league} key={league.idTeam}></League>  )
            }
