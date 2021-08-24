@@ -4,9 +4,21 @@ import { useParams } from 'react-router-dom';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import { makeStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
+
+const progessBarLine = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      '& > * + *': {
+        marginTop: theme.spacing(2),
+      },
+    },
+  }));
 
 const TeamDetail = () => {
+    const progessBarLineClasses = progessBarLine();  
     const{idTeam}= useParams();
     const [team,setTeam]=useState({});
     const {strDescriptionEN,strFacebook,strGender,strInstagram,intFormedYear,strSport}=team;
@@ -20,12 +32,15 @@ const TeamDetail = () => {
     const ifimg = strGender==="male" ? 'https://i.ibb.co/nfXXPxG/female.png' : 'https://i.ibb.co/S0g5ydp/male.png' ;
     return (
         <div style={{backgroundColor:'#0E0A2A',height:'100vh'}} className="teamDetail">
+            {
+                strDescriptionEN ===false && <div className={progessBarLineClasses.root}> <LinearProgress /> </div>
+            }
             <div className="banner">
                 <img style={{width:'100%',height:'30vh'}} src='https://i.ibb.co/Hx22hkG/Capture.png' alt="content missing" />
             </div>
             <div className="team-detail-body">
                 <div style={{width:'60%',marginLeft:'20%',backgroundColor:'#3A42FF',height:'188px'}} className="premier-league">
-                    <div style={{color:'white',float:'left',paddingLeft:'250px'}} className="lef    t">
+                    <div style={{color:'white',float:'left',paddingLeft:'250px'}} className="left">
                         <h2>Premier league  </h2>
                         <h3>  Founded: {intFormedYear} </h3>
                         <h3>Sport Type: {strSport} </h3>
